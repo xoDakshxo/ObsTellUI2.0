@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Obstell 2.0</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --corp-bg: #F3F4F6;
+        --corp-surface: #FFFFFF;
+        --corp-border: #18181B; /* Zinc 900 */
+        --corp-text: #1F2937;
+        --corp-muted: #6B7280;
+        --corp-primary: #6366F1;
+        --corp-primary-light: #E0E7FF;
+        --corp-accent: #18181B;
+      }
+
+      html.dark {
+        --corp-bg: #09090B; /* Zinc 950 */
+        --corp-surface: #18181B; /* Zinc 900 */
+        --corp-border: #3F3F46; /* Zinc 700 */
+        --corp-text: #FAFAFA; /* Zinc 50 */
+        --corp-muted: #A1A1AA;
+        --corp-primary: #818CF8; /* Indigo 400 */
+        --corp-primary-light: #312E81;
+        --corp-accent: #FFFFFF;
+      }
+
+      body {
+        background-color: var(--corp-bg);
+        color: var(--corp-text);
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      /* Refined Slim Scrollbar */
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--corp-muted);
+        border-radius: 99px;
+        opacity: 0.5;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--corp-text);
+      }
+
+      /* Utility to hide scrollbar but allow scrolling */
+      .scrollbar-hide {
+          -ms-overflow-style: none;  /* IE and Edge */
+          scrollbar-width: none;  /* Firefox */
+      }
+      .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              display: ['Space Grotesk', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            },
+            colors: {
+              corp: {
+                bg: 'var(--corp-bg)',
+                surface: 'var(--corp-surface)',
+                border: 'var(--corp-border)',
+                primary: 'var(--corp-primary)',
+                primaryLight: 'var(--corp-primary-light)',
+                accent: 'var(--corp-accent)',
+                success: '#10B981',
+                warning: '#F59E0B',
+                danger: '#EF4444',
+                text: 'var(--corp-text)',
+                muted: 'var(--corp-muted)',
+              }
+            },
+            boxShadow: {
+              'corp-sm': '2px 2px 0px 0px var(--corp-border)',
+              'corp-md': '4px 4px 0px 0px var(--corp-border)',
+              'corp-lg': '6px 6px 0px 0px var(--corp-border)',
+              'corp-xl': '6px 6px 0px 0px var(--corp-border)',
+            },
+            borderWidth: {
+              '1': '1px',
+              '2': '2px',
+              '3': '3px',
+            },
+            animation: {
+              'slide-up': 'slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+              'slide-in-right': 'slideInRight 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
+            },
+            keyframes: {
+              slideUp: {
+                '0%': { transform: 'translateY(20px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              },
+              slideInRight: {
+                '0%': { transform: 'translateX(-10px)', opacity: '0' },
+                '100%': { transform: 'translateX(0)', opacity: '1' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+    "recharts": "https://aistudiocdn.com/recharts@^3.5.1",
+    "@phosphor-icons/react": "https://esm.sh/@phosphor-icons/react@2.0.15?external=react,react-dom"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="antialiased overflow-hidden selection:bg-corp-primary selection:text-white">
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
